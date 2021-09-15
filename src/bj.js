@@ -12,7 +12,7 @@ export class Card {
             13: 'K'
         }
 
-        if (this._rank>10 || this._rank ===1 ){
+        if (this._rank>10 || this._rank === 1){
             return pictureCards[this._rank];
         }
         else{

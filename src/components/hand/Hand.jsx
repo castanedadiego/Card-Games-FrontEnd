@@ -32,7 +32,7 @@ export default function Hand(props) {
     handCards.forEach(card => {
 
         cards.push(
-            <Card value= {card._rank} suit= {card._suit}/>
+            <Card value= {card.candyRank} suit= {card._suit}/>
         )
 
     });
