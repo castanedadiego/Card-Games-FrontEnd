@@ -1,10 +1,16 @@
 .bar{
     display: flex;
-    width: 30%;
-    height: 100%;
-    background: white
+    justify-content: left;
+    margin: 30px;
+
 }
 
 .bar * {
-    margin: 10px
+    width: 50px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20%;
+    background: white;
+    text-align: center;
+
 }
