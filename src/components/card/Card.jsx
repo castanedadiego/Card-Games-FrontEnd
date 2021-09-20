@@ -29,7 +29,7 @@ export default function Card(props) {
     return (
         <div>
             <div className= {`outline ${getColor()}` }>
-                <div class= "top">
+                <div className= "top">
                     <span> {props.value}</span>
                     <span> {getSuit()}</span>
                 </div>

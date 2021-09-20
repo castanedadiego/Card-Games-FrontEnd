@@ -21,7 +21,7 @@ export class Card {
     }
 
     get num_rank(){
-        if (this._rank == 1) return 1;
+        if (this._rank == 1) return 11;
         else if (this._rank>10) return 10;
         else return this._rank;
         }
