@@ -1,18 +1,10 @@
 import "./Hand.css"
-import React, {useState} from 'react'
-import Card from '../card/Card'
-import {Deck, PlayerHand} from '../../bj.js'
+import React, {useState} from 'react';
+import Card from '../card/Card';
 
 export default function Hand(props) {
 
-    var d= new Deck();
-    var h = new PlayerHand();
-
-    h.add_card(d.draw(1));
-    h.add_card(d.draw(2));
-
-    let card1= h.drawn_cards[0];
-    let card2= h.drawn_cards[1];
+    let h= props.cards;
 
     const [sum, setSum] = useState(
         h.num
@@ -21,11 +13,6 @@ export default function Hand(props) {
     const [handCards, setHandCards]= useState(
         h.drawn_cards
     );
-
-    const addNewCard= ()=> {
-        h.add_card( d.draw() )
-        setSum(h.num);
-    }
 
     let cards = [];
 
