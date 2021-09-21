@@ -34,7 +34,7 @@ export default function Card(props) {
                     <span> {getSuit()}</span>
                 </div>
                 <h1>{getSuit()}</h1>
-                <div class ="bottom">
+                <div className ="bottom">
                     <span> {props.value}</span>
                     <span> {getSuit()} </span>
                  </div>

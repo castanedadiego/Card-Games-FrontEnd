@@ -4,8 +4,6 @@ import Card from '../card/Card';
 
 export default function Hand(props) {
 
-    const [sum, setSum] = useState(props.cards.num);
-
     const [handCards, setHandCards]= useState(
         props.cards.drawn_cards
     );
@@ -13,9 +11,9 @@ export default function Hand(props) {
     const renderCards= ()=> {
         let _cards =[];
 
-        handCards.forEach(card => {
+        handCards.forEach( (card, idx) => {
              _cards.push(
-            <Card value= {card.candyRank} suit= {card._suit}/>
+            <Card value= {card.candyRank} suit= {card._suit} key={idx}/>
         )
 
     })
@@ -25,7 +23,7 @@ export default function Hand(props) {
     return (
         <div className= "hand">
             {renderCards()}
-            <p>Count: {sum} </p>
+            <p>Count: {props.cards.num} </p>
         </div>
     )
 }

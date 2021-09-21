@@ -8,27 +8,31 @@ function useForceUpdate(){
     return () => setValue(value => value + 1); // update the state to force render
 }
 
-export default function PlayingSpace() {
-    var d= new Deck();
-    var h = new PlayerHand();
+var d= new Deck();
+var h = new PlayerHand();
+var idx=0;
+h.add_card(d.draw(1));
+h.add_card(d.draw(2));
 
-    h.add_card(d.draw(1));
-    h.add_card(d.draw(2));
-    h.add_card(d.draw(3));
+export default function PlayingSpace() {
+
+
 
     const [playerHand, setPlayerHand ] = useState(h);
 
     const forceUpdate = useForceUpdate();
 
     const hitCard = () => {
-        h.add_card(d.draw(1))
+        h.add_card(d.draw(idx));
         setPlayerHand(h);
         forceUpdate();
+        console.log("test");
+        idx++;
     }
 
     return (
         <div >
-            <Hand cards = {h} />
+            <Hand cards = {playerHand} />
             <ButtonBar onClick= {hitCard} />
         </div>
     )
