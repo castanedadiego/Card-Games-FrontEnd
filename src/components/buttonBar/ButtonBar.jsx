@@ -8,7 +8,7 @@ export default function ButtonBar(props) {
             <div className= "double">Double</div>
             <div className= "split">Split</div>
             <div className= "stand">Stand</div>
-            <div className= "hit" onClick= {props.onClick}>Hit</div>
+            <div className= "hit" onClick= {props.hitFct}>Hit</div>
         </div>
     )
 }

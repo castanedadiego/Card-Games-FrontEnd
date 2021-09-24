@@ -10,13 +10,11 @@ function useForceUpdate(){
 
 var d= new Deck();
 var h = new PlayerHand();
-var idx=0;
+var idx=3;
 h.add_card(d.draw(1));
 h.add_card(d.draw(2));
 
 export default function PlayingSpace() {
-
-
 
     const [playerHand, setPlayerHand ] = useState(h);
 
@@ -33,7 +31,7 @@ export default function PlayingSpace() {
     return (
         <div >
             <Hand cards = {playerHand} />
-            <ButtonBar onClick= {hitCard} />
+            <ButtonBar hitFct= {hitCard} />
         </div>
     )
 }
