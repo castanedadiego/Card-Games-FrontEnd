@@ -53,6 +53,10 @@ export class Deck {
     }
 }
 
+
+
+
+
  export class PlayerHand{
     constructor(cards){
         this.drawn_cards= cards || [] ;
@@ -82,4 +86,25 @@ export class Deck {
 
         return card;
     }
+}
+
+export class DealerHand extends PlayerHand{
+    constructor(cards){
+        this.drawn_cards = cards || [];
+    }
+
+    play(){
+
+        let cards = [];
+
+
+
+        return cards
+
+
+
+    }
+
+
+
 }
