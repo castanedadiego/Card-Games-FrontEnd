@@ -3,6 +3,15 @@ import "./Card.css"
 
 export default function Card(props) {
 
+    const getFace = ()=> {
+        if (props.face){
+            return "facedown"
+        }
+
+        return ""
+    }
+
+
     const getColor= () => {
         const suit= props.suit;
 
@@ -28,7 +37,7 @@ export default function Card(props) {
 
     return (
         <div>
-            <div className= {`outline ${getColor()}` }>
+            <div className= {`outline ${getColor()} ${getFace()}` }>
                 <div className= "top">
                     <span> {props.value}</span>
                     <span> {getSuit()}</span>

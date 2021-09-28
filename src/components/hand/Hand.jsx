@@ -13,9 +13,8 @@ export default function Hand(props) {
 
         handCards.forEach( (card, idx) => {
              _cards.push(
-            <Card value= {card.candyRank} suit= {card._suit} key={idx}/>
+            <Card  face= {card.face_down} value= {card.candyRank} suit= {card._suit} key={idx}/>
         )
-
     })
         return _cards;
     };

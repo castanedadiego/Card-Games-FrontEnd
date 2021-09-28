@@ -1,7 +1,12 @@
 export class Card {
     constructor(suit, rank){
     this._suit = suit;
-    this._rank= rank
+    this._rank= rank;
+    this.face_down = false;
+    }
+
+    setFaceDown(){
+        this.face_down = true;
     }
 
     get candyRank(){
@@ -53,10 +58,6 @@ export class Deck {
     }
 }
 
-
-
-
-
  export class PlayerHand{
     constructor(cards){
         this.drawn_cards= cards || [] ;
@@ -88,23 +89,17 @@ export class Deck {
     }
 }
 
-export class DealerHand extends PlayerHand{
+export class Dealer extends PlayerHand{
     constructor(cards){
+        super(cards);
         this.drawn_cards = cards || [];
     }
 
-    play(){
-
-        let cards = [];
-
-
-
-        return cards
-
-
+    play(deck, idx = 0){
+        while (this.num < 17) {
+            this.add_card(deck.draw(idx));
+            idx++;
+        }
 
     }
-
-
-
 }
