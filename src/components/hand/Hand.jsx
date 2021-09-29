@@ -4,6 +4,8 @@ import Card from '../card/Card';
 
 export default function Hand(props) {
 
+    const done= new Event('done');
+
     const [handCards, setHandCards]= useState(
         props.cards.drawn_cards
     );
