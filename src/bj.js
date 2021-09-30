@@ -95,11 +95,10 @@ export class Dealer extends PlayerHand{
         this.drawn_cards = cards || [];
     }
 
-    play(deck, idx = 0){
-        while (this.num < 17) {
+    play(deck, idx = 0, limit= 17){
+        while (this.num < limit) {
             this.add_card(deck.draw(idx));
             idx++;
         }
-
     }
 }

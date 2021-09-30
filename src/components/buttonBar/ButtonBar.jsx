@@ -3,7 +3,8 @@ import './ButtonBar.css';
 
 export default function ButtonBar(props) {
 
-    const event= new Event('playerStands')
+    const event= new Event('playerStands');
+
 
 
     return (
