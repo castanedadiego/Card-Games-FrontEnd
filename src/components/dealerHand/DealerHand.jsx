@@ -14,6 +14,9 @@ export default function DealerHand() {
     h.drawn_cards[1].setFaceDown();
 
 
+    const dealerPlay= h.play();
+
+
 
     const [dealerHand, setDealerHand ] = useState(h);
 
