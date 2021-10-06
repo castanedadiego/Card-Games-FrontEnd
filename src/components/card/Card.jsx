@@ -11,7 +11,6 @@ export default function Card(props) {
         return ""
     }
 
-
     const getColor= () => {
         const suit= props.suit;
 

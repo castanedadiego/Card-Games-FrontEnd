@@ -14,7 +14,10 @@ export default function DealerHand() {
     h.drawn_cards[1].setFaceDown();
 
 
-    const dealerPlay= h.play();
+    const play  = () => {
+        h.play(d, idx);
+    }
+
 
 
 
