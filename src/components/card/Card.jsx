@@ -7,7 +7,6 @@ export default function Card(props) {
         if (props.face){
             return "facedown"
         }
-
         return ""
     }
 
