@@ -15,6 +15,17 @@
 
 }
 
+
+.inactive{
+    background: lightgray;
+    color: darkgrey;
+}
+
+.inactive :hover{
+    color: inherit ;
+    background: inherit;
+}
+
 .bar :hover{
     cursor: pointer;
     background: grey;

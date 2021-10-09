@@ -5,8 +5,8 @@ export class Card {
     this.face_down = false;
     }
 
-    setFaceDown(){
-        this.face_down = true;
+    flipCard(){
+        this.face_down = !this.face_down;
     }
 
     get candyRank(){
@@ -63,9 +63,9 @@ export class Deck {
         this.drawn_cards= cards || [] ;
     }
 
-    did_bust(draw_count) {
-        if (draw_count > 21){
-            console.log(`Count is ${draw_count}. Busted!`);
+    did_bust() {
+        if (this.num > 21){
+            console.log(`Count is ${this.draw_count}. Busted!`);
             return true;
         }
         else return false;
@@ -96,6 +96,9 @@ export class Dealer extends PlayerHand{
     }
 
     play(deck, idx = 0, limit= 17){
+
+        this.drawn_cards[1].flipCard();
+
         while (this.num < limit) {
             this.add_card(deck.draw(idx));
             idx++;
