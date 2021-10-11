@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ButtonBar from '../buttonBar/ButtonBar'
 import Hand from '../hand/Hand'
 import {Dealer, Deck, PlayerHand} from '../../bj.js'
@@ -10,26 +10,19 @@ function useForceUpdate(){
 }
 
 let idx=0;
+var w= new Dealer();
+var h = new PlayerHand;
 var d= new Deck();
-var w = new Dealer();
-var h = new PlayerHand();
-h.add_card(d.draw(idx));
-h.add_card(d.draw(idx+1));
-
-w.add_card(d.draw(idx+2));
-w.add_card(d.draw(idx+3));
-
-w.drawn_cards[1].flipCard();
-
-idx+=4;
 
 export default function PlayingSpace() {
 
     const [playerHand, setPlayerHand ] = useState(h);
-
     const [dealHand, setDealHand] = useState(w);
+    const [handCounter, setHandCounter] = useState(0);
 
-    const forceUpdate = useForceUpdate();
+    const [, updateState] = useState();
+    const forceUpdate = React.useCallback(() => updateState({}), []);
+
 
     const hitCard = () => {
         if (playerHand.num >= 21) return 0;
@@ -49,18 +42,43 @@ export default function PlayingSpace() {
         idx++;
     }
 
+    const newRound = () => {
 
-    const handleRound = () => {
+       w.clear();
+       h.clear();
+
+        w.add_card(d.draw(idx));
+        h.add_card(d.draw(idx+1));
+
+        w.add_card(d.draw(idx+2));
+        h.add_card(d.draw(idx+3));
+
+        setHandCounter(handCounter+1);
+
+        w.drawn_cards[1].flipCard();
+
+        setPlayerHand(h);
+        setDealHand(w);
+
+        forceUpdate();
+
+        idx+=4;
 
     }
 
+        useEffect(() => {
+
+            newRound();
+
+        }, [])
 
 
 
     return (
         <div >
-            <DealerHand cards = {dealHand}/>
-            <Hand cards = {playerHand} done = {handlePlayerDone} />
+            <div onClick= {newRound}>New</div>
+            <DealerHand cards = {dealHand} handkey= {handCounter}/>
+            <Hand cards = {playerHand} done = {handlePlayerDone} handkey= {handCounter} />
             <ButtonBar hitFct= {hitCard} done= {handlePlayerDone} />
         </div>
     )

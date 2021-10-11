@@ -87,6 +87,11 @@ export class Deck {
 
         return card;
     }
+
+    clear(){
+        this.drawn_cards = [];
+    }
+
 }
 
 export class Dealer extends PlayerHand{

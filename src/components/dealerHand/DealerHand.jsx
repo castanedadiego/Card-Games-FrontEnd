@@ -7,7 +7,7 @@ export default function DealerHand(props) {
 
     return (
         <div>
-            <Hand cards= {props.cards}/>
+            <Hand cards= {props.cards} type= {"dealer"}/>
         </div>
     )
 }

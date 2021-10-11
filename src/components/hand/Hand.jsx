@@ -4,6 +4,9 @@ import Card from '../card/Card';
 
 export default function Hand(props) {
 
+    const [, updateState] = useState();
+    const forceUpdate = React.useCallback(() => updateState({}), []);
+
     const done= new Event('done');
 
     const [handCards, setHandCards]= useState(
@@ -13,7 +16,7 @@ export default function Hand(props) {
     const renderCards= ()=> {
         let _cards =[];
 
-        handCards.forEach( (card, idx) => {
+        props.cards.drawn_cards.forEach( (card, idx) => {
              _cards.push(
             <Card  face= {card.face_down} value= {card.candyRank} suit= {card._suit} key={idx}/>
         )
@@ -22,6 +25,7 @@ export default function Hand(props) {
     };
 
     return (
+
         <div className= "hand">
             {renderCards()}
             <p>Count: {props.cards.num} </p>
