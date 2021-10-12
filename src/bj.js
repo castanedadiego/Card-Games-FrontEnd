@@ -33,8 +33,8 @@ export class Card {
 }
 
 export class Deck {
-    constructor(){
-        this.cards= this.make_fresh_deck();
+    constructor(n=1){
+        this.cards= this.make_shoe(n);
     }
 
     make_fresh_deck(){
@@ -49,6 +49,17 @@ export class Deck {
         return fresh_deck.sort( () => Math.random() -0.5);
     }
 
+    make_shoe(n){
+
+        var shoe= [];
+
+        for( let i =0; i<n; i++){
+            shoe = shoe.concat(this.make_fresh_deck());
+        }
+        return shoe.sort( ()=> Math.random() -0.5 );
+
+    }
+
     draw(i=0){
 
         let idx = (i>51)? i-52 : i;
@@ -61,6 +72,11 @@ export class Deck {
  export class PlayerHand{
     constructor(cards){
         this.drawn_cards= cards || [] ;
+    }
+
+    blackjack(){
+        if (this.num ===21 || this.draw_count ===2 ) return true;
+        return false;
     }
 
     did_bust() {
@@ -88,6 +104,14 @@ export class Deck {
         return card;
     }
 
+    gameResult(dealHand){
+        if (this.did_bust() ) return -1;
+        if (dealHand.did_bust()) return 1;
+
+        return Math.sign(this.num - dealHand.num)
+    }
+
+
     clear(){
         this.drawn_cards = [];
     }
@@ -109,4 +133,6 @@ export class Dealer extends PlayerHand{
             idx++;
         }
     }
+
+
 }

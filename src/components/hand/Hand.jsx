@@ -28,7 +28,7 @@ export default function Hand(props) {
 
         <div className= "hand">
             {renderCards()}
-            <p>Count: {props.cards.num} </p>
+            {/* <p>Count: {props.cards.num} </p> */}
         </div>
     )
 }
