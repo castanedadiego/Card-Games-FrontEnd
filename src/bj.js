@@ -17,7 +17,7 @@ export class Card {
             13: 'K'
         }
 
-        if (this._rank>10 || this._rank === 1){
+        if (this._rank>10 || this. _rank === 1){
             return pictureCards[this._rank];
         }
         else{
@@ -39,12 +39,13 @@ export class Deck {
 
     make_fresh_deck(){
         let fresh_deck= [];
+        const suits= ['hearts', 'clubs', 'spades', 'diamonds'];
 
         for(let i=1; i<=13; i++){
-            fresh_deck.push(new Card("hearts", i));
-            fresh_deck.push(new Card("clubs", i));
-            fresh_deck.push(new Card("spades", i));
-            fresh_deck.push(new Card("diamonds", i));
+
+            for (let suit of suits){
+                fresh_deck.push(new Card(suit, i));
+            }
         }
         return fresh_deck.sort( () => Math.random() -0.5);
     }
@@ -110,7 +111,6 @@ export class Deck {
 
         return Math.sign(this.num - dealHand.num)
     }
-
 
     clear(){
         this.drawn_cards = [];

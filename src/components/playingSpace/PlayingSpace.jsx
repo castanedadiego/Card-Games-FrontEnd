@@ -81,7 +81,7 @@ export default function PlayingSpace() {
         }, [])
 
     return (
-        <div >
+        <div className ="playingSpace">
             <div onClick= {newRound}>New</div>
             <DealerHand cards = {dealHand} handkey= {handCounter}/>
             <Hand cards = {playerHand} handkey= {handCounter} />

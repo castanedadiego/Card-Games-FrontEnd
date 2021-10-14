@@ -1,3 +1,10 @@
+.playingSpace{
+    display: flex;
+    align-items: center;
+
+    height: 95vh;
+}
+
 .money{
     color: white;
     padding: 30px;
